@@ -10,7 +10,7 @@ const Book = ({book, changeShelf})  => {
                     width: 128,
                     height: 193,
                     backgroundImage:
-                    `url(${book.imageLinks.thumbnail})`,
+                    `url(${book.imageLinks && book.imageLinks.thumbnail?book.imageLinks.thumbnail:null})`,
                 }}
                 ></div>
                 <div className="book-shelf-changer">
@@ -29,7 +29,7 @@ const Book = ({book, changeShelf})  => {
             </div>
             {console.log(book.title)}
             <div className="book-title">{book.title}</div>
-            {book.authors.map((author)=>
+            {book.author && book.authors.map((author)=>
                 <div className="book-authors">{author}</div>
             )}
             </div>
