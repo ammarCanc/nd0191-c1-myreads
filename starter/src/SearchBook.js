@@ -12,10 +12,11 @@ const SearchBook = ({changeShelf}) => {
     useEffect(() => {
         const searchBooks = async (query) => {
             const res = await BooksAPI.search(query, 5);
-            console.log(res)
             if (res !== undefined && res.length){
-                console.log(res.length);
                 setRetrievedBooks(res);
+            }
+            else{
+                setRetrievedBooks([]);
             }
         };
         if (userSearch.length>0){
