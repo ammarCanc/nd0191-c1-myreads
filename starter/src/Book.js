@@ -41,9 +41,6 @@ const Book = ({book, changeShelf})  => {
                     <option value="none" disabled>
                     Move to...
                     </option>
-                    <option value="currentlyReading">
-                    Currently Reading
-                    </option>
                     <option value="wantToRead" selected={currentShelf==="wantToRead"}>Want to Read</option>
                     <option value="currentlyReading" selected={currentShelf==="currentlyReading"}>Currently Reading</option>
                     <option value="read" selected={currentShelf==="read"}>Read</option>
@@ -52,8 +49,8 @@ const Book = ({book, changeShelf})  => {
                 </div>
             </div>
             <div className="book-title">{book.title}</div>
-            {book.author && book.authors.map((author)=>
-                <div className="book-authors">{author}</div>
+            {book.authors && book.authors.map((author, key)=>
+                <div id={key} className="book-authors">{author}</div>
             )}
             </div>
         </li>
